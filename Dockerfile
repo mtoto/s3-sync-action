@@ -13,6 +13,10 @@ LABEL maintainer="Jake Jarvis <jake@jarv.is>"
 # https://github.com/aws/aws-cli/blob/master/CHANGELOG.rst
 ENV AWSCLI_VERSION='1.16.265'
 
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git
+
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 
 ADD entrypoint.sh /entrypoint.sh
