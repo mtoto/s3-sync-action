@@ -44,6 +44,9 @@ sh -c "aws s3 sync s3://${AWS_S3_BUCKET}/${SOURCE_DIR} ${DEST_DIR} \
               --no-progress \
               ${ENDPOINT_APPEND} $*"
 
+git config --local user.email 'data@downloader.com'
+git config --local user.name 'data_denny'
+
 # Commit changes to github
 sh -c "git commit ${DEST_DIR}/ -m 'Commit fresh fight data'"
 sh -c "git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:master"
