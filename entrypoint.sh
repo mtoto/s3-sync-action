@@ -45,7 +45,7 @@ sh -c "aws s3 sync s3://${AWS_S3_BUCKET}/${DEST_FILE} ${DEST_DIR}\${DEST_FILE}
               ${ENDPOINT_APPEND} $*"
 
 # Commit changes to github
-git commit data/ufc_stats.rda -m 'Commit fresh fight data';
+git commit ${DEST_DIR}\${DEST_FILE} -m 'Commit fresh fight data';
 git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:master
 
 # Clear out credentials after we're done.
