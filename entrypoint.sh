@@ -39,13 +39,13 @@ EOF
 
 # Sync using our dedicated profile and suppress verbose messages.
 # All other flags are optional via the `args:` directive.
-sh -c "aws s3 sync s3://${AWS_S3_BUCKET}/${DEST_FILE} ${DEST_DIR}\${DEST_FILE} \
+sh -c "aws s3 sync s3://${AWS_S3_BUCKET}/${DEST_FILE} ${DEST_DIR}/${DEST_FILE} \
               --profile s3-sync-action \
               --no-progress \
               ${ENDPOINT_APPEND} $*"
 
 # Commit changes to github
-sh -c "git commit ${DEST_DIR}\${DEST_FILE} -m 'Commit fresh fight data'"
+sh -c "git commit ${DEST_DIR}/${DEST_FILE} -m 'Commit fresh fight data'"
 sh -c "git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:master"
 
 # Clear out credentials after we're done.
