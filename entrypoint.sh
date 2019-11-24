@@ -49,8 +49,7 @@ git config --local user.name 'data_denny'
 
 # Commit changes to github
 sh -c "git commit ${DEST_DIR}/ -m 'Commit fresh fight data'"
-
-git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:master
+sh -c "git push https://${github.actor}:${secrets.GITHUB_TOKEN}@github.com/${github.repository}.git HEAD:master"
 
 # Clear out credentials after we're done.
 # We need to re-run `aws configure` with bogus input instead of
