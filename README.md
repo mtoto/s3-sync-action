@@ -2,7 +2,7 @@
 
 > **⚠️ Note:** To use this action, you must have access to the [GitHub Actions](https://github.com/features/actions) feature. GitHub Actions are currently only available in public beta. You can [apply for the GitHub Actions beta here](https://github.com/features/actions/signup/).
 
-This simple action uses the [vanilla AWS CLI](https://docs.aws.amazon.com/cli/index.html) to sync a directory (either from your repository or generated during your workflow) with a remote S3 bucket.
+This simple action uses the [vanilla AWS CLI](https://docs.aws.amazon.com/cli/index.html) to sync a a remote S3 bucket (or specific files) to a local directory.
 
 
 ## Usage
