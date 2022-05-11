@@ -44,8 +44,7 @@ sh -c "aws s3 sync s3://${AWS_S3_BUCKET}/${SOURCE_DIR} ${DEST_DIR} \
               --no-progress \
               ${ENDPOINT_APPEND} $*"
 
-# git config --local user.email 'new_ufc@fights.com'
-# git config --local user.name 'new_ufc_fights'
+git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
 # Commit changes to github
 sh -c 'git diff --quiet && git diff --staged --quiet || git commit -am "Commit fresh fight data"'
