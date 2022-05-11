@@ -45,6 +45,8 @@ sh -c "aws s3 sync s3://${AWS_S3_BUCKET}/${SOURCE_DIR} ${DEST_DIR} \
               ${ENDPOINT_APPEND} $*"
 
 git config --global --add safe.directory "$GITHUB_WORKSPACE"
+git config --global user.email "data_runner@ufcstats.com"
+git config --global user.name "Data Updater"
 
 # Commit changes to github
 sh -c 'git diff --quiet && git diff --staged --quiet || git commit -am "Commit fresh fight data"'
